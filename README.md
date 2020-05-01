@@ -1,208 +1,219 @@
-# codenation_desafio_gerenciador_times
-Desafio de código AceleraDev Java Codenation
-Backend para gerenciar times de futebol
+# Backend para gerenciar times de futebol
 
-Você é responsável por construir o backend de um novo gerenciador de times de futebol. Após fecharem o escopo do projeto, você e sua equipe definiram a @interface que o software deve implementar. A interface é a seguinte :
+Você é responsável por construir o backend de um novo gerenciador de times de futebol. Após fecharem o escopo do projeto, você e sua equipe definiram a `@interface` que o software deve implementar. A interface é a seguinte :
 
-public interface MeuTimeInterface {
 
-	@Desafio("incluirTime")
-	public void incluirTime(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSecundario);
+    public interface MeuTimeInterface {
 
-	@Desafio("incluirJogador")
-	public void incluirJogador(Long id, Long idTime, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario);
+		@Desafio("incluirTime")
+		public void incluirTime(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSecundario);
 
-	@Desafio("definirCapitao")
-	public void definirCapitao(Long idJogador);
+		@Desafio("incluirJogador")
+		public void incluirJogador(Long id, Long idTime, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario);
 
-	@Desafio("buscarCapitaoDoTime")
-	public Long buscarCapitaoDoTime(Long idTime);
+		@Desafio("definirCapitao")
+		public void definirCapitao(Long idJogador);
 
-	@Desafio("buscarNomeJogador")
-	public String buscarNomeJogador(Long idJogador);
+		@Desafio("buscarCapitaoDoTime")
+		public Long buscarCapitaoDoTime(Long idTime);
 
-	@Desafio("buscarNomeTime")
-	public String buscarNomeTime(Long idTime);
+		@Desafio("buscarNomeJogador")
+		public String buscarNomeJogador(Long idJogador);
 
-	@Desafio("buscarMaiorSalario")
-	public Long buscarJogadorMaiorSalario(Long idTime);
+		@Desafio("buscarNomeTime")
+		public String buscarNomeTime(Long idTime);
 
-	@Desafio("buscarSalarioDoJogador")
-	public BigDecimal buscarSalarioDoJogaodor(Long idJogador);
+		@Desafio("buscarMaiorSalario")
+		public Long buscarJogadorMaiorSalario(Long idTime);
 
-	@Desafio("buscarJogadoresDoTime")
-	public List<Long> buscarJogadoresDoTime(Long idTime);
+		@Desafio("buscarSalarioDoJogador")
+		public BigDecimal buscarSalarioDoJogaodor(Long idJogador);
 
-	@Desafio("buscarMelhorJogadorDoTime")
-	public Long buscarMelhorJogadorDoTime(Long idTime);
+		@Desafio("buscarJogadoresDoTime")
+		public List<Long> buscarJogadoresDoTime(Long idTime);
 
-	@Desafio("buscarJogadorMaisVelho")
-	public Long buscarJogadorMaisVelho(Long idTime);
+		@Desafio("buscarMelhorJogadorDoTime")
+		public Long buscarMelhorJogadorDoTime(Long idTime);
 
-	@Desafio("buscarTimes")
-	public List<Long> buscarTimes();
+		@Desafio("buscarJogadorMaisVelho")
+		public Long buscarJogadorMaisVelho(Long idTime);
 
-	@Desafio("buscarTopJogadores")
-	public List<Long> buscarTopJogadores(Integer top);
-}
+		@Desafio("buscarTimes")
+		public List<Long> buscarTimes();
+		
+		@Desafio("buscarTopJogadores")
+		public List<Long> buscarTopJogadores(Integer top);
+	}
 
 Os dados devem ficar armazenados na memória.
-Requisitos de Sistema
 
-    Parâmetros com * são obrigatórios.
-    Os parâmetros, com exceção de identificadores, são sempre íntegros e farão sentido.
+## Requisitos de Sistema
 
-@Desafio(“incluirTime)”
+- Parâmetros com `*` são obrigatórios.
+- Os parâmetros, com exceção de identificadores, são sempre íntegros e farão sentido.
+
+### @Desafio("incluirTime)"
 
 Realiza a inclusão de um novo time.
 
-    Long id* Identificador do time
-    String nome* Nome do Time
-    LocalDate dataCriacao* Data de criação do time
-    String corUniformePrincipal* Cor do uniforme principal do time
-    String corUniformeSecundario* Cor do uniforme secundário do time
+Long `id`* Identificador do time
+String `nome`* Nome do Time
+LocalDate `dataCriacao`* Data de criação do time
+String `corUniformePrincipal`* Cor do uniforme principal do time
+String `corUniformeSecundario`* Cor do uniforme secundário do time
 
-Exceções:
+**Exceções:**
 
-    Caso o identificador já exista, retornar br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException
+Caso o `identificador` já exista, retornar `br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException`
 
-@Desafio(“incluirJogador)”
+### @Desafio("incluirJogador)"
 
 Realiza a inclusão de um novo jogador.
 
-    Long id* Identificador do Jogador
-    Long idTime* Identificador do time
-    String nome* Nome do Jogador
-    LocalDate dataNascimento* Data de nascimento do Jogador
-    Integer nivelHabilidade* Nível de habilidade do jogador (0 a 100)
-    BigDecimal salario* Salário do jogador
+Long `id`* Identificador do Jogador
+Long `idTime`* Identificador do time
+String `nome`* Nome do Jogador
+LocalDate `dataNascimento`* Data de nascimento do Jogador
+Integer `nivelHabilidade`* Nível de habilidade do jogador (0 a 100)
+BigDecimal `salario`* Salário do jogador
 
-Exceções:
+**Exceções:**
 
-    Caso o identificador já exista, retornar br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException
-    Caso o time informado não exista, retornar br.com.codenation.desafio.exceptions.TimeNaoEncontradoException
+Caso o `identificador` já exista, retornar `br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException`
+Caso o time informado não exista, retornar `br.com.codenation.desafio.exceptions.TimeNaoEncontradoException`
 
-@Desafio(“definirCapitao”)
+### @Desafio("definirCapitao")
 
 Define um jogador como capitão do seu time. Um time deve ter apenas um capitão, por tanto o capitão anterior voltará a ser apenas jogador.
 
-    Long idJogador* Identificador do jogador.
+Long `idJogador`* Identificador do jogador.
 
-Exceções:
+**Exceções:**
 
-    Caso o jogador informado não exista, retornar br.com.codenation.desafio.exceptions.JogadorNaoEncontradoException
+Caso o jogador informado não exista, retornar `br.com.codenation.desafio.exceptions.JogadorNaoEncontradoException`
 
-@Desafio(“buscarCapitaoDoTime”)
+### @Desafio("buscarCapitaoDoTime")
 
-Mostra o identificador do capitão do time.
+Mostra o `identificador` do capitão do time.
 
-    Long idTime* Identificador do Time
+Long `idTime`* Identificador do Time
 
-Exceções:
+**Exceções:**
 
-    Caso o time informado não exista, retornar br.com.codenation.desafio.exceptions.TimeNaoEncontradoException
+Caso o time informado não exista, retornar `br.com.codenation.desafio.exceptions.TimeNaoEncontradoException`
 
-Caso o time informado não tenha um capitão, retornar br.com.codenation.desafio.exceptions.CapitaoNaoInformadoException
-@Desafio(“buscarNomeJogador”)
+Caso o time informado não tenha um capitão, retornar `br.com.codenation.desafio.exceptions.CapitaoNaoInformadoException`
 
-Retorna o nome do jogador.
+### @Desafio("buscarNomeJogador")
 
-    Long idJogador* Identificador do jogador
+Retorna o `nome` do jogador.
 
-Exceções
+Long `idJogador`* Identificador do jogador
 
-Caso o jogador informado não exista, retornar br.com.codenation.desafio.exceptions.JogadorNaoEncontradoException
-@Desafio(“buscarNomeTime”)
+**Exceções**
 
-Retorna o nome do time.
+Caso o jogador informado não exista, retornar `br.com.codenation.desafio.exceptions.JogadorNaoEncontradoException`
 
-    Long idTime* Identificador do Time
+### @Desafio("buscarNomeTime")
 
-Exceções
+Retorna o `nome` do time.
 
-    Caso o time informado não exista, retornar br.com.codenation.desafio.exceptions.TimeNaoEncontradoException
+Long `idTime`* Identificador do Time
 
-@Desafio(“buscarJogadoresDoTime”)
+**Exceções**
 
-Retorna a lista com o identificador de todos os jogadores do time, ordenada pelo id.
+Caso o time informado não exista, retornar `br.com.codenation.desafio.exceptions.TimeNaoEncontradoException`
 
-    Long idTime* Identificador do Time
+### @Desafio("buscarJogadoresDoTime")
 
-Exceções
+Retorna a lista com o `identificador` de todos os jogadores do time, ordenada pelo `id`.
 
-    Caso o time informado não exista, retornar br.com.codenation.desafio.exceptions.TimeNaoEncontradoException
+Long `idTime`* Identificador do Time
 
-@Desafio(“buscarMelhorJogadorDoTime”)
+**Exceções**
 
-Retorna o identificador do melhor jogador do time.
+Caso o time informado não exista, retornar `br.com.codenation.desafio.exceptions.TimeNaoEncontradoException`
 
-    Long idTime* Identificador do time.
+### @Desafio("buscarMelhorJogadorDoTime")
 
-Exceções:
+Retorna o `identificador` do melhor jogador do time.
 
-    Caso o time informado não exista, retornar br.com.codenation.desafio.exceptions.TimeNaoEncontradoException
+Long `idTime`* Identificador do time.
 
-@Desafio(“buscarJogadorMaisVelho”)
+**Exceções**:
 
-Retorna o identificador do jogador mais velho do time. Usar o menor identificador como critério de desempate.
+Caso o time informado não exista, retornar `br.com.codenation.desafio.exceptions.TimeNaoEncontradoException`
 
-    Long idTime* Identificador do time
+### @Desafio("buscarJogadorMaisVelho")
 
-    Caso o time informado não exista, retornar br.com.codenation.desafio.exceptions.TimeNaoEncontradoException
+Retorna o `identificador` do jogador mais velho do time. Usar o menor `identificador` como critério de desempate.
 
-@Desafio(“buscarTimes”)
+Long idTime* Identificador do time
 
-Retorna uma lista com o identificador de todos os times cadastrado, ordenada pelo identificador. Retornar uma lista vazia caso não encontre times cadastrados.
-@Desafio(“buscarJogadorMaiorSalario”)
+Caso o time informado não exista, retornar `br.com.codenation.desafio.exceptions.TimeNaoEncontradoException`
 
-Retorna o identificador do jogador com maior salário do time. Usar o menor identificador como critério de desempate.
+### @Desafio("buscarTimes")
 
-    Long idTime* Identificador do time.
+Retorna uma lista com o `identificador` de todos os times cadastrado, ordenada pelo `identificador`.
+Retornar uma lista vazia caso não encontre times cadastrados.
 
-Exceções:
+### @Desafio("buscarJogadorMaiorSalario")
 
-    Caso o time informado não exista, retornar br.com.codenation.desafio.exceptions.TimeNaoEncontradoException
+Retorna o `identificador` do jogador com maior salário do time. Usar o menor `identificador` como critério de desempate.
 
-@Desafio(“buscarSalarioDoJogador”)
+Long `idTime`* Identificador do time.
 
-Retorna o salário do jogador.
+**Exceções**:
 
-    Long idJogador* Identificador do jogador
+Caso o time informado não exista, retornar `br.com.codenation.desafio.exceptions.TimeNaoEncontradoException`
 
-Exceções:
+### @Desafio("buscarSalarioDoJogador")
 
-    Caso o jogador informado não exista, retornar br.com.codenation.desafio.exceptions.JogadorNaoEncontradoException
+Retorna o `salário` do jogador.
 
-@Desafio(“buscarTopJogadores”)
+Long `idJogador`* Identificador do jogador
 
-Retorna uma lista com o identificador dos top melhores jogadores, utilizar o menor identificador como critério de desempate.
+**Exceções**:
 
-    Integer top* Quantidade de jogares na lista
+Caso o jogador informado não exista, retornar `br.com.codenation.desafio.exceptions.JogadorNaoEncontradoException`
 
-Exceções:
+### @Desafio("buscarTopJogadores")
 
-    Caso não exista nenhum jogador cadastrado, retornar uma lista vazia.
+Retorna uma lista com o `identificador` dos `top` melhores jogadores, utilizar o menor `identificador` como critério de desempate.
 
-@Desafio(“buscarCorCamisaTimeDeFora”)
+Integer `top`* Quantidade de jogares na lista
 
-Retorna a cor da camisa do time adversário. Caso a cor principal do time da casa seja igual a cor principal do time de fora, retornar cor secundária do time de fora. Caso a cor principal do time da casa seja diferente da cor principal do time de fora, retornar cor principal do time de fora.
+**Exceções**:
 
-    Long idTimeDaCasa* Identificador do time da casa
-    Long idTimeDeFora* Identificador do time de fora
+Caso não exista nenhum jogador cadastrado, retornar uma lista vazia.
 
-Tópicos
+### @Desafio("buscarCorCamisaTimeDeFora")
+
+Retorna a `cor da camisa` do time adversário. 
+Caso a `cor principal` do time da casa seja **igual** a `cor principal` do time de fora, retornar `cor secundária` do time de fora.
+Caso a `cor principal` do time da casa seja **diferente** da `cor principal` do time de fora, retornar `cor principal` do time de fora.
+
+Long `idTimeDaCasa`* Identificador do time da casa
+Long `idTimeDeFora`* Identificador do time de fora
+
+## Tópicos
 
 Neste desafio você aprenderá:
 
-    Variáveis e métodos
-    Operadores matemáticos
-    Controle de fluxo
-    Listas
-    Tratamento de exceções
+- Variáveis e métodos
+- Operadores matemáticos
+- Controle de fluxo
+- Listas
+- Tratamento de exceções
 
-Requisitos
+## Requisitos
+​
+​Para este desafio você precisará :
 
-​ ​Para este desafio você precisará :
+- Java 8 +
 
-    Java 8 +
+Para instalar no MacOS, usando o HomeBrew basta executar:
 
+    brew cask install java
+
+dPara instalar no Linux e Windows confira os links na sessão de conteúdo
